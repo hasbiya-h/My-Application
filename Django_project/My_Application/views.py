@@ -1,10 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    msg="<h1>Welcome to Django Framework</h1>"
-    return HttpResponse(msg)
+    context = {
+        'name': 'Hasbiya'
+    }
+    return render(request, 'my_application/home.html', context)
 
 def index(request):
-    return HttpResponse("<h1this is Index page/h1>")
+    return render(request, 'my_application/index.html')
+
+def user(request):
+    return render(request, 'my_application/users.html')
